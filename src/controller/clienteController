@@ -15,5 +15,17 @@ module.exports = {
             });
         }
         res.json(json);
+    },
+    findById: async(req, res) => {
+        let json = {error:'', result:{}};
+
+        let id = req.params.id;
+        let cliente = await clienteService.findById(id);
+        
+        if (cliente){
+            json.result = cliente;
+        }
+
+        res.json(json);
     }
 }
