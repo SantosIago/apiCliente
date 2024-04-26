@@ -27,5 +27,26 @@ module.exports = {
         }
 
         res.json(json);
+    },
+    insert: async(req, res) => {
+        let json = {error:'', result:{}};
+
+        let nome = req.body.nome;
+        let cpf = req.body.cpf;
+        let telefone = req.body.telefone;
+        
+        if (nome && cpf && telefone){
+            let clienteId = await clienteService.insert(nome, cpf, telefone);
+            json.result = {
+                id: clienteId,
+                nome,
+                cpf,
+                telefone
+            };
+        }else{
+            json.error = 'Campos não enviados'
+        }
+
+        res.json(json);
     }
 }

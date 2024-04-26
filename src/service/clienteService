@@ -23,7 +23,18 @@ module.exports = {
                 }
             });
         });
+    },
+    insert: (nome, cpf, telefone) => {
+        return new Promise((aceito, rejeitado) => {
+
+            db.query('INSERT INTO cliente (nome, cpf, telefone) VALUES (? , ?, ?)', 
+            [nome, cpf, telefone], (error, results)=>{
+                if(error) {rejeitado(error); return; }
+                    aceito(results.insertId);
+                }
+            );
+        });
     }
-    
+
 
 }
