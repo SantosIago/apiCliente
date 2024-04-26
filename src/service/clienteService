@@ -1,1 +1,14 @@
 const db = require('../db');
+
+module.exports = {
+    findAll: () =>{
+        return new Promise((aceito, rejeito)=>{
+
+            db.query('SELECT * FROM cliente', (error, results)=>{
+                if(error) {rejeitado(error); return; }
+                aceito(results);
+            });
+            
+        });
+    }
+}

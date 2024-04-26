@@ -1,1 +1,0 @@
-const clienteService = require('../services/clienteService');

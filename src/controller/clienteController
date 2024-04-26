@@ -1,0 +1,19 @@
+const clienteService = require('../service/clienteService');
+
+module.exports = {
+    findAll: async (req, res)=> {
+        let json = {error:'', result:[]};
+
+        let clientes = await clienteService.findAll();
+
+        for(let i in clientes){
+            json.result.push({
+                id: clientes[i].id,
+                nome: clientes[i].nome,
+                cpf: clientes[i].cpf,
+                telefone: clientes[i].telefone
+            });
+        }
+        res.json(json);
+    }
+}
