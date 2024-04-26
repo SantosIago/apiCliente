@@ -7,5 +7,6 @@ router.get('/clientes', ClienteController.findAll);
 router.get('/clientes/:id', ClienteController.findById);
 router.post('/clientes', ClienteController.insert);
 router.put('/clientes/:id', ClienteController.update);
+router.delete('/clientes/:id', ClienteController.delete);
 
 module.exports = router;
