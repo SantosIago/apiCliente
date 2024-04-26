@@ -48,5 +48,27 @@ module.exports = {
         }
 
         res.json(json);
+    },
+    update: async(req, res) => {
+        let json = {error:'', result:{}};
+
+        let id = req.body.id;
+        let nome = req.body.nome;
+        let cpf = req.body.cpf;
+        let telefone = req.body.telefone;
+        
+        if (id && nome && cpf && telefone){
+            await clienteService.update(nome, cpf, telefone, id);
+            json.result = {
+                id,
+                nome,
+                cpf,
+                telefone
+            };
+        }else{
+            json.error = 'Campos não enviados'
+        }
+
+        res.json(json);
     }
 }
