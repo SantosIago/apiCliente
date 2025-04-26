@@ -15,5 +15,5 @@ O desafio era mudar informações em um banco de dados (Mysql) e adicionar clien
 
 | Plataforma |
 |------------|
-|[Node.js](https://nodejs.org/en]|
+|[Node.js](https://nodejs.org/en)|
 
